@@ -5,13 +5,13 @@
 Clone the repository under home:
 
 ```
-git clone https://github.com/CristhianMotoche/nixos-config.git -O ~/.nixos-config/
+git clone git@github.com:CristhianMotoche/nix-config.git ~/.nix-config/
 ```
 
 Link the [configuration.nix][config] file with `/etc/nixos`:
 
 ```
-sudo ln -s ~/.nixos-config/pc/configuration.nix  /etc/nixos/
+sudo ln -s ~/.nix-config/pc/configuration.nix  /etc/nixos/
 ```
 
 Apply changes:
@@ -20,4 +20,4 @@ Apply changes:
 sudo nixos-rebuild switch
 ```
 
-[config]: ./configuration.nix
+[config]: ./configuration.nix
