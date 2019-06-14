@@ -23,8 +23,8 @@ in {
   environment.systemPackages = [
     homeManager.home-manager
     pkgs.git
-    pkgs.neovim
     pkgs.networkmanagerapplet
+    pkgs.xfce.xfce4-whiskermenu-plugin
     pkgs.zsh
   ];
 
