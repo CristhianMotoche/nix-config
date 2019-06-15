@@ -24,13 +24,20 @@ in {
     homeManager.home-manager
     pkgs.git
     pkgs.networkmanagerapplet
+    pkgs.pulseaudio
     pkgs.xfce.xfce4-whiskermenu-plugin
+    pkgs.xfce.xfce4-volumed
+    pkgs.xfce.xfce4-screenshooter
+    pkgs.xfce.xfce4-timer-plugin
     pkgs.zsh
   ];
 
   # Enable sound.
   sound.enable = true;
   hardware.pulseaudio.enable = true;
+
+  # Enable opengl
+  hardware.opengl.driSupport32Bit = true;
 
   # Enable the X11 windowing system.
   services.xserver.enable = true;
