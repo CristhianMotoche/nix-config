@@ -24,17 +24,20 @@ in {
     homeManager.home-manager
     pkgs.git
     pkgs.networkmanagerapplet
-    pkgs.pulseaudio
     pkgs.xfce.xfce4-whiskermenu-plugin
     pkgs.xfce.xfce4-volumed
     pkgs.xfce.xfce4-screenshooter
     pkgs.xfce.xfce4-timer-plugin
+    pkgs.xfce.xfce4-pulseaudio-plugin
     pkgs.zsh
   ];
 
   # Enable sound.
   sound.enable = true;
   hardware.pulseaudio.enable = true;
+
+  # Bluetooth
+  hardware.bluetooth.enable = false;
 
   # Enable opengl
   hardware.opengl.driSupport32Bit = true;
@@ -47,7 +50,10 @@ in {
 
   # Enable the XFCE Desktop Environment.
   services.xserver.displayManager.lightdm.enable = true;
-  services.xserver.windowManager.i3.enable = true;
+  services.xserver.windowManager = {
+    i3.enable = true;
+    default = "i3";
+  };
   services.xserver.desktopManager = {
     xfce.enable = true;
     default = "xfce";
@@ -60,9 +66,12 @@ in {
     extraGroups = [
       "networkmanager"
       "wheel"
+      "docker"
     ]; # Enable ‘sudo’ for the user.
     shell = pkgs.zsh;
   };
+
+  virtualisation.docker.enable = true;
 
   # This value determines the NixOS release with which your system is to be
   # compatible, in order to avoid breaking some software such as database
